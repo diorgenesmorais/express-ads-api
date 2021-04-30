@@ -1,0 +1,34 @@
+{
+  "name": "express-ads-api",
+  "version": "1.0.0",
+  "description": "> Tarefa do curso de Node proposta pelo professor Júlio Vieira",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diorgenesmorais/express-ads-api.git"
+  },
+  "keywords": [
+    "express",
+    "bord-parser",
+    "cors",
+    "helmet",
+    "morgan",
+    "mongodb"
+  ],
+  "author": "Diorgenes Morais <diorgenesmorais@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diorgenesmorais/express-ads-api/issues"
+  },
+  "homepage": "https://github.com/diorgenesmorais/express-ads-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.5.0",
+    "morgan": "^1.10.0"
+  }
+}
