@@ -1,10 +1,11 @@
 {
   "name": "express-ads-api",
   "version": "1.0.0",
-  "description": "> Tarefa do curso de Node proposta pelo professor Júlio Vieira",
+  "description": "Tarefa do curso de Node proposta pelo professor Júlio Vieira",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src"
   },
   "repository": {
     "type": "git",
