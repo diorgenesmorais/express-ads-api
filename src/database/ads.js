@@ -1,4 +1,5 @@
 import {getDatabase} from './mongdb.js';
+import {ObjectID} from './mongodb-imports.js';
 
 const collectionName = 'ads';
 
@@ -13,4 +14,24 @@ async function getAds() {
   return await database.collection(collectionName).find({}).toArray();
 }
 
-export { insertAd, getAds };
+async function deleteAd(id) {
+  const database = await getDatabase();
+  await database.collection(collectionName).deleteOne({
+    _id: new ObjectID(id),
+  });
+}
+
+async function updateAd(id, ad) {
+  const database = await getDatabase();
+  delete ad._id;
+  await database.collection(collectionName).updateOne(
+    { _id: new ObjectID(id) },
+    {
+      $set: {
+        ...ad,
+      },
+    },
+  );
+}
+
+export { insertAd, getAds, deleteAd, updateAd };
