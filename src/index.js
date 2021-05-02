@@ -3,6 +3,8 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import { startDatabase } from './database/mongdb.js';
+import { insertAd, getAds } from './database/ads.js';
 
 const app = express();
 
@@ -13,10 +15,14 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('combined'));
 
-app.get('/', (_, res) => {
-    res.send([{"title": "Hello world (again"}]);
+app.get('/', async (_, res) => {
+    res.send(await getAds());
 });
 
-app.listen(3001, () => {
-    console.log('Server running on the port 3001');
+startDatabase().then(async () => {
+    await insertAd({"title": "Hello, now from the in-memory database!"});
+
+    app.listen(3001, async () => {
+        console.log('Server running on the port 3001');
+    });
 });
