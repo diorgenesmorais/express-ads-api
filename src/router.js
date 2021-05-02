@@ -1,26 +1,14 @@
 import express from 'express';
-import { insertAd, getAds, updateAd, deleteAd } from './database/ads.js';
+import { insertAd, getAds, updateAd, deleteAd } from './database/ads.controller.js';
 
 const router = express.Router();
 
-router.get('/', async (_, res) => {
-    res.send(await getAds());
-});
+router.get('/', getAds);
 
-router.post('/', async (req, res) => {
-    await insertAd(req.body);
-    res.send({message: 'New ad inserted'});
-});
+router.post('/', insertAd);
 
-router.put('/:id', async (req, res) => {
-    const content = req.body;
-    const data = await updateAd(req.params.id, content);
-    res.send({message: 'Ad updated', ...data});
-});
+router.put('/:id', updateAd);
 
-router.delete('/:id', async (req, res) => {
-    await deleteAd(req.params.id);
-    res.send({message: 'Ad removed'});
-});
+router.delete('/:id', deleteAd);
 
 export {router};
