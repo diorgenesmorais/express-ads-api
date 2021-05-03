@@ -8,8 +8,6 @@ import { startDatabase } from './database/mongdb.js';
 
 const app = express();
 
-app.disable('x-powered-by')
-
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(cors());
